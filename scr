@@ -1,0 +1,65 @@
+ --Prison Life
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Test", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--Main Player
+
+local PlayerTab = Window:MakeTab({
+	Name = "PlayerTab",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = PlayerTab:AddSection({
+	Name = "Movement"
+})
+
+PlayerTab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 16,
+	Max = 500,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value 
+	end    
+})
+
+PlayerTab:AddSlider({
+	Name = "Jump Hight",
+	Min = 16,
+	Max = 500,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value 
+	end    
+})
+
+
+ -- other stuff lol
+
+local OtherTab = Window:MakeTab({
+	Name = "Other",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+local Section = OtherTab:AddSection({
+	Name = "Section"
+})
+
+
+OtherTab:AddButton({
+	Name = "Delete Doors",
+	Callback = function()
+      		 game.Workspace.Doors:Destroy()
+  	end    
+})
